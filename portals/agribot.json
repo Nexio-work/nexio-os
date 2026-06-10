@@ -1,0 +1,32 @@
+{
+  "slug": "agribot",
+  "domain": "agribot.space",
+  "title": "AgriBot — Africa-First Agricultural AI",
+  "tagline": "Smart farming powered by artificial intelligence.",
+  "description": "AgriBot is an Africa-first agricultural AI platform. 6 AI-powered products for crop disease detection, farm analytics, microfinance, market intelligence, weather forecasting, and supply chain tracking.",
+  "accentColor": "#10b981",
+  "seoTitle": "AgriBot — Agricultural AI Africa | Smart Farming | Crop Disease Detection",
+  "seoDescription": "Africa-first agricultural AI platform. AgriScan, AgriInsight, AgriFinance, AgriMarket, AgriWeather, AgriTrack. Empowering African farmers with AI. Teaser: Madagascar first.",
+  "keywords": ["agricultural AI Africa","smart farming Madagascar","crop disease detection","farm analytics","agritech startup","African agriculture technology","AI farming tools"],
+  "ctaText": "Request Demo",
+  "ctaUrl": "/contact",
+  "contactEmail": "contact@fata.plus",
+  "navLinks": [{"label":"Home","href":"/"},{"label":"Products","href":"/products"},{"label":"About","href":"/about"},{"label":"Contact","href":"/contact"}],
+  "sections": [
+    {"type":"hero","title":"Farming Powered by AI","content":"6 AI products designed for African agriculture. Starting in Madagascar.","items":[]},
+    {"type":"products","title":"Product Suite","content":"","items":[
+      {"icon":"🔬","name":"AgriScan","desc":"Point your phone at a crop. Get instant disease diagnosis with treatment recommendations."},
+      {"icon":"📈","name":"AgriInsight","desc":"Farm analytics dashboard. Yield predictions, soil health monitoring, resource optimization."},
+      {"icon":"💰","name":"AgriFinance","desc":"Microloans powered by harvest data. Connect farmers with fair credit based on real yields."},
+      {"icon":"🛒","name":"AgriMarket","desc":"Marketplace connecting farmers directly to buyers. Better prices, less waste."},
+      {"icon":"🌦️","name":"AgriWeather","desc":"Hyper-local weather forecasts tailored to your fields. Planting and harvesting recommendations."},
+      {"icon":"📍","name":"AgriTrack","desc":"Supply chain tracking from farm to table. Traceability, quality control, logistics."}
+    ]},
+    {"type":"impact","title":"Impact","content":"","items":[{"metric":"50K+","label":"Farmers reached (target)"},{"metric":"6","label":"AI Products"},{"metric":"$15K","label":"PIC Funding secured"}]},
+    {"type":"partners","title":"Partners","content":"","items":["Miary Digital","Zady Tody Incubation","PIC Fund"]},
+    {"type":"madagascar","title":"Madagascar First","content":"Our teaser market. Proving the model before pan-African expansion.","items":[]},
+    {"type":"cta","title":"Transform Agriculture with AI","content":"Join our pilot program in Madagascar.","items":[]}
+  ],
+  "socialLinks": {"linkedin":"linkedin.com/in/fenohery-fanomezanirina","github":"github.com/Nexio-work"},
+  "footerText": "© 2024–2026 FATAPLUS SRL-U. AgriBot by FATAPLUS."
+}

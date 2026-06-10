@@ -1,0 +1,15 @@
+{
+  "name": "nexio-os",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nexio OS — AI-native Business Operating System",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev:pwa": "cd apps/pwa && npm run dev",
+    "dev:api": "cd apps/api && npm run dev",
+    "build": "npm run build --workspaces",
+    "build:pwa": "cd apps/pwa && npm run build",
+    "build:api": "cd apps/api && npm run build"
+  },
+  "engines": { "node": ">=20.0.0" }
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "portfolio",
+  "domain": "fenohery.space",
+  "title": "Fenohery Fanomezanirina",
+  "tagline": "Product Designer · Full-Stack Developer · Entrepreneur",
+  "description": "Portfolio of Fenohery Fanomezanirina — product designer, full-stack developer, and entrepreneur building AI-native products from Madagascar.",
+  "accentColor": "#1a1a2e",
+  "seoTitle": "Fenohery Fanomezanirina — Portfolio | Product Designer | Developer",
+  "seoDescription": "Portfolio of Fenohery Fanomezanirina. Product designer, full-stack developer, entrepreneur. Building AI-native products: Nexio OS, Kontia, AgriBot, and more.",
+  "keywords": ["Fenohery Fanomezanirina","product designer","full-stack developer","entrepreneur","Madagascar","SvelteKit","Cloudflare","AI products"],
+  "ctaText": "Get In Touch",
+  "ctaUrl": "/contact",
+  "contactEmail": "contact@fata.plus",
+  "navLinks": [{"label":"Work","href":"/work"},{"label":"About","href":"/about"},{"label":"Contact","href":"/contact"}],
+  "sections": [
+    {"type":"hero","title":"Fenohery Fanomezanirina","content":"Building AI-native products that work offline, scale globally, and empower users worldwide.","items":[]},
+    {"type":"projects","title":"Featured Work","content":"","items":[
+      {"icon":"🚀","title":"Nexio OS","desc":"Business Operating System — multi-tenant SaaS, offline-first, AI-powered. Built with SvelteKit + Cloudflare.","url":"https://nexio.work"},
+      {"icon":"📊","title":"Kontia","desc":"Compta IA OHADA — intelligent accounting system for African businesses using PCG2005 standards.","url":"https://kontia.nexio.work"},
+      {"icon":"🌾","title":"AgriBot","desc":"Africa-first agricultural AI platform. 6 products for smart farming. PIC-funded ($15K USD).","url":"https://agribot.space"},
+      {"icon":"🎨","title":"Tanala","desc":"Web builder inspired by Divhunt. Drag-and-drop site creation for non-technical users.","url":"https://tanala.nexio.work"}
+    ]},
+    {"type":"skills","title":"Skills & Expertise","content":"","items":[
+      {"category":"Design","skills":["Product Strategy","UX/UI","Design Systems","User Research","Prototyping"]},
+      {"category":"Development","skills":["SvelteKit 5 (Runes)","Cloudflare Workers/D1/R2","TypeScript","Hono API","Material Design 3"]},
+      {"category":"AI/ML","skills":["Agent Loops","RAG Systems","Prompt Engineering","LLM Integration","Automation Pipelines"]},
+      {"category":"Business","skills":["SaaS Architecture","Multi-tenant Systems","Payment Integrations","Offline-First Patterns"]}
+    ]},
+    {"type":"about","title":"About","content":"Based in Madagascar, building for the world. Founder of FATAPLUS SRL-U. Focused on AI-native products that respect constraints — poor connectivity, limited resources, diverse markets.","items":[]},
+    {"type":"contact","title":"Contact","content":"Open to interesting projects, collaborations, and conversations about the future of AI-native software.","items":[]}
+  ],
+  "socialLinks": {
+    "linkedin": "linkedin.com/in/fenohery-fanomezanirina",
+    "github": "github.com/fenoh3ry",
+    "twitter/x": ""
+  },
+  "footerText": "© 2024–2026 Fenohery Fanomezanirina."
+}

@@ -1,0 +1,41 @@
+{
+  "brand": {
+    "primary": "#6366f1",
+    "secondary": "#8b5cf6",
+    "tertiary": "#a78bfa",
+    "error": "#ef4444",
+    "warning": "#f59e0b",
+    "success": "#10b981"
+  },
+  "surface": {
+    "light": {
+      "background": "#fef7ff",
+      "surface": "#ffffff",
+      "surfaceDim": "#ded8e0",
+      "surfaceContainerLow": "#fdf0ff",
+      "surfaceContainer": "#faeeff",
+      "surfaceContainerHigh": "#f4e3ff",
+      "surfaceContainerHighest": "#ede9fe"
+    },
+    "dark": {
+      "background": "#1c1b1f",
+      "surface": "#211f26",
+      "surfaceDim": "#1b191c",
+      "surfaceContainerLow": "#25232b",
+      "surfaceContainer": "#2b2930",
+      "surfaceContainerHigh": "#35323a",
+      "surfaceContainerHighest": "#3f3b45"
+    }
+  },
+  "outline": { "variant": "#79747e" },
+  "modules": {
+    "kontia":  {"base": "#3b82f6", "container": "#dbeafe", "onBase": "#ffffff"},
+    "crm":     {"base": "#10b981", "container": "#d1fae5", "onBase": "#ffffff"},
+    "tanala":  {"base": "#f59e0b", "container": "#fef3c7", "onBase": "#000000"},
+    "agents":  {"base": "#8b5cf6", "container": "#ede9fe", "onBase": "#ffffff"},
+    "projects":{"base": "#ec4899", "container": "#fce7f3", "onBase": "#ffffff"},
+    "stocks":  {"base": "#06b6d4", "container": "#cffafe", "onBase": "#000000"},
+    "comms":   {"base": "#f97316", "container": "#ffedd5", "onBase": "#000000"},
+    "insights":{"base": "#14b8a6", "container": "#ccfbf1", "onBase": "#000000"}
+  }
+}

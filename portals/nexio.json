@@ -1,0 +1,42 @@
+{
+  "slug": "nexio",
+  "domain": "nexio.work",
+  "title": "Nexio OS — Your Business Operating System",
+  "tagline": "AI-powered. Offline-first. Multi-tenant.",
+  "description": "Nexio OS is an AI-native Business Operating System. Multi-tenant SaaS with modules for accounting, CRM, project management, and more. Built for modern teams.",
+  "accentColor": "#6366f1",
+  "seoTitle": "Nexio OS — Business Operating System | Offline-First PWA | AI-Powered",
+  "seoDescription": "The first AI-native Business Operating System. Offline-first PWA with Material Design 3. Modules: Accounting (Kontia), CRM, Projects, Agents, and more. Start free today.",
+  "keywords": ["business operating system","offline-first PWA","AI-powered business tools","multi-tenant SaaS","SME software","company brain","accounting software","CRM software","project management tool"],
+  "ctaText": "Start Free Trial",
+  "ctaUrl": "/register",
+  "contactEmail": "contact@fata.plus",
+  "navLinks": [
+    {"label":"Home","href":"/"},{"label":"Features","href":"/features"},{"label":"Pricing","href":"/pricing"},{"label":"About","href":"/about"}
+  ],
+  "sections": [
+    {"type":"hero","title":"Your Business Operating System","content":"One workspace. All your tools. AI-powered. Works offline.","items":[]},
+    {"type":"modules","title":"Built-in Modules","content":"","items":[
+      {"icon":"📊","name":"Kontia","desc":"Compta IA OHADA — Intelligent accounting for African businesses."},
+      {"icon":"👥","name":"CRM","desc":"Contacts, deals, pipelines. Know your customers."},
+      {"icon":"🎨","name":"Tanala","desc":"Web Builder — Launch professional sites in minutes."},
+      {"icon":"🤖","name":"Agents","desc":"AI agents that automate your repetitive tasks."},
+      {"icon":"📁","name":"Projets","desc":"Projects, tasks, timelines. Ship faster together."},
+      {"icon":"✉️","name":"Comms","desc":"Unified mail, SMS, and communication channels."}
+    ]},
+    {"type":"how-it-works","title":"How It Works","content":"","items":[
+      {"step":"1","title":"Sign Up","desc":"Create your workspace in 30 seconds. No credit card required."},
+      {"step":"2","title":"Pick Modules","desc":"Choose the tools you need. Each module activates instantly."},
+      {"step":"3","title":"Work Anywhere","desc":"Desktop or mobile. Online or offline. Your data syncs automatically."}
+    ]},
+    {"type":"pricing","title":"Simple Pricing","content":"","items":[
+      {"plan":"Free","price":"$0","period":"/forever","features":["1 user","1 module","100 MB storage","Community support"],"highlight":false},
+      {"plan":"Starter","price":"$19","period":"/month","features":["3 users","3 modules","500 MB storage","Email support"],"highlight":true},
+      {"plan":"Pro","price":"$49","period":"/month","features":["10 users","All modules","5 GB storage","Priority support"],"highlight":false},
+      {"plan":"Enterprise","price":"$149","period":"/month","features":["Unlimited users","All modules","Unlimited storage","Whitelabel + dedicated support"],"highlight":false}
+    ]},
+    {"type":"cta","title":"Get Started Free","content":"Join thousands of businesses running on Nexio OS.","items":[]}
+  ],
+  "socialLinks": {"linkedin":"linkedin.com/in/fenohery-fanomezanirina","github":"github.com/Nexio-work","twitter/x":""},
+  "footerText": "© 2024–2026 FATAPLUS SRL-U. Powered by Nexio OS."
+}

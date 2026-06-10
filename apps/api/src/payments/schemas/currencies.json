@@ -1,0 +1,1 @@
+{"currencies":{"USD":{"symbol":"$","decimals":2,"name":"US Dollar"},"EUR":{"symbol":"€","decimals":2,"name":"Euro"},"MGA":{"symbol":"Ar","decimals":0,"name":"Malagasy Ariary"},"USDT":{"symbol":"\u20b9","decimals":2,"name":"Tether USD","stablecoin":true},"USDC":{"symbol":"$C","decimals":2,"name":"USD Coin","stablecoin":true}}}

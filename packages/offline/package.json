@@ -1,0 +1,9 @@
+{
+  "name": "@nexio/offline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Nexio OS Offline-First Sync Engine (IndexedDB + Service Worker)",
+  "dependencies": { "dexie": "^4.0.0" },
+  "exports": { ".": "./src/index.ts" }
+}

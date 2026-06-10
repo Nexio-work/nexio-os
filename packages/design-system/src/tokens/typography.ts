@@ -1,0 +1,31 @@
+export interface TypeScale {
+  size: number;       // px
+  lineHeight: number; // px
+  weight: number;     // 100-900
+  letterSpacing: number; // em
+}
+
+export const fontFamily = {
+  primary: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  mono: '"JetBrains Mono", ui-monospace, Consolas, monospace',
+} as const;
+
+export const typeScale: Record<string, TypeScale> = {
+  displayLarge:  { size:57, lineHeight:64, weight:400, letterSpacing:-0.25 },
+  displayMedium: { size:45, lineHeight:52, weight:400, letterSpacing:0 },
+  displaySmall:  { size:36, lineHeight:44, weight:400, letterSpacing:0.5 },
+  headlineLarge:  { size:32, lineHeight:40, weight:400, letterSpacing:0 },
+  headlineMedium: { size:28, lineHeight:36, weight:400, letterSpacing:0 },
+  headlineSmall:  { size:24, lineHeight:32, weight:400, letterSpacing:0.4 },
+  titleLarge:     { size:22, lineHeight:28, weight:500, letterSpacing:0 },
+  titleMedium:   { size:16, lineHeight:24, weight:500, letterSpacing:0.15 },
+  titleSmall:    { size:14, lineHeight:20, weight:500, letterSpacing:0.1 },
+  bodyLarge:     { size:16, lineHeight:24, weight:400, letterSpacing:0.5 },
+  bodyMedium:    { size:14, lineHeight:20, weight:400, letterSpacing:0.25 },
+  bodySmall:     { size:12, lineHeight:16, weight:400, letterSpacing:0.4 },
+  labelLarge:    { size:14, lineHeight:20, weight:500, letterSpacing:0.1 },
+  labelMedium:   { size:12, lineHeight:16, weight:500, letterSpacing:0.5 },
+  labelSmall:    { size:11, lineHeight:16, weight:500, letterSpacing:0.5 },
+};
+
+export const typography = { fontFamily, typeScale } as const;
