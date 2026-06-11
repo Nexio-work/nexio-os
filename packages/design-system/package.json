@@ -14,5 +14,7 @@
     "./tokens/*": "./src/tokens/*.ts",
     "./themes/*": "./src/themes/*.css",
     "./glass/*": "./src/glass/*"
-  }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts"
 }

@@ -1,27 +1,12 @@
-name = "nexio-api"
-main = "src/index.ts"
-compatibility_date = "2024-09-23"
-compatibility_flags = ["nodejs_compat"]
+name="nexio-os-api"
+main="src/index.ts"
+compatibility_date="2024-09-23"
 
-# D1 Database
 [[d1_databases]]
-binding = "DB"
-database_name = "nexio-os-db"
-database_id = "${NEXIO_D1_DATABASE_ID}"
+binding="DB"
+database_name="NEXIO_DB"
+database_id="03d55e00-5583-4037-80ee-3f8db757a8e4"
 
-# KV Namespace (rate limiting + sessions)
 [[kv_namespaces]]
-binding = "KV"
-id = "${NEXIO_KV_NAMESPACE_ID}"
-preview_id = "${NEXIO_KV_PREVIEW_ID}"
-
-[vars]
-NODE_ENV = "production"
-
-# Development overrides (.dev.vars)
-# NEXIO_JWT_SECRET = "dev-secret-change-in-production"
-# STRIPE_SECRET_KEY = ""
-# STRIPE_WEBHOOK_SECRET = ""
-# WISE_API_KEY = ""
-# REDOTPAY_API_KEY = ""
-# REDOTPAY_WEBHOOK_SECRET = ""
+binding="KV"
+id="kv_nexio_os_03d55e00"

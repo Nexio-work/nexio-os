@@ -4,6 +4,12 @@
   "private": true,
   "type": "module",
   "description": "Nexio OS Offline-First Sync Engine (IndexedDB + Service Worker)",
-  "dependencies": { "dexie": "^4.0.0" },
-  "exports": { ".": "./src/index.ts" }
+  "dependencies": {
+    "dexie": "^4.0.0"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts"
 }

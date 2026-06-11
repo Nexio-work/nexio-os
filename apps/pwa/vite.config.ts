@@ -5,9 +5,9 @@ export default defineConfig({
   plugins: [sveltekit()],
   resolve: {
     alias: {
-      '@nexio/design-system': '../../packages/design-system/src',
-      '@nexio/offline': '../../packages/offline/src',
-      '@nexio/shared-tokens': '../../packages/shared-tokens/src'
+      '@nexio/design-system': '../../packages/design-system/src/index.ts',
+      '@nexio/offline': '../../packages/offline/src/index.ts',
+      '@nexio/shared-tokens': '../../packages/shared-tokens/src/index.ts'
     }
   }
 });

@@ -50,8 +50,8 @@
         font-size:18px;display:flex;align-items:center;justify-content:center;
         transition:transform 0.15s;
       "
-      onmouseenter="(e) => (e.currentTarget.style.transform = 'scale(1.05)')"
-      onmouseleave="(e) => (e.currentTarget.style.transform = '')"
+      onmouseenter={(e) => { const t = e.currentTarget as HTMLElement; t.style.transform = 'scale(1.05)'; }}
+      onmouseleave={(e) => { (e.currentTarget as HTMLElement).style.transform = ''; }}
     >➤</button>
   </div>
 </form>

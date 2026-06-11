@@ -2,14 +2,14 @@
   "name": "nexio-os",
   "version": "0.1.0",
   "private": true,
-  "description": "Nexio OS — AI-native Business Operating System",
-  "workspaces": ["packages/*", "apps/*"],
+  "type": "module",
+  "pnpm": { "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"] },
   "scripts": {
-    "dev:pwa": "cd apps/pwa && npm run dev",
-    "dev:api": "cd apps/api && npm run dev",
-    "build": "npm run build --workspaces",
-    "build:pwa": "cd apps/pwa && npm run build",
-    "build:api": "cd apps/api && npm run build"
+    "dev:pwa": "cd apps/pwa && pnpm dev",
+    "dev:api": "cd apps/api && pnpm dev",
+    "build:pwa": "cd apps/pwa && pnpm build",
+    "build:api": "cd apps/api && pnpm build",
+    "db:migrate": "wrangler d1 execute nexio-db --file=data/schema.sql"
   },
-  "engines": { "node": ">=20.0.0" }
+  "engines": { "node": ">=20" }
 }

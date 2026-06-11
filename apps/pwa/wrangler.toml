@@ -1,0 +1,8 @@
+name="nexio-os-pwa"
+compatibility_date="2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding="DB"
+database_name="NEXIO_DB"
+database_id="03d55e00-5583-4037-80ee-3f8db757a8e4"

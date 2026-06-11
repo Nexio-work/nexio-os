@@ -1,34 +1,24 @@
 <script lang="ts">
-  import WidgetRow from '$lib/shell/WidgetRow.svelte';
-  import ModuleGrid from '$lib/shell/ModuleGrid.svelte';
-  import AIBar from '$lib/shell/AIBar.svelte';
-  import { getModulesForPlan } from '$lib/plugins/plugin-registry';
-
-  const modules = $derived(getModulesForPlan('enterprise'));
+  export const ssr = false;
 </script>
 
 <svelte:head>
-  <title>Dashboard — Nexio OS</title>
+  <title>Nexio OS</title>
 </svelte:head>
 
-<main class="dashboard" style="
-  padding: 24px;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-bottom: 100px;
-">
-  <!-- Top widgets -->
-  <WidgetRow />
-
-  <!-- Module grid (ZimaOS-style) -->
-  <h2 style="
-    font-size: var(--md-sys-typescale-headline-medium-size, 28px);
-    font-weight: 400;
-    margin: 32px 0 16px;
-    color: var(--md-sys-color-on-surface);
-  ">Modules</h2>
-  <ModuleGrid modules={modules} />
-
-  <!-- AI Bar fixed at bottom -->
-  <AIBar />
-</main>
+<div style="
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  font-family:system-ui,sans-serif;
+  background:#0f0f23;color:#e0e0ff;padding:40px;text-align:center">
+  <h1 style="font-size:48px;margin-bottom:16px">🚀 Nexio OS</h1>
+  <p style="font-size:20px;margin-bottom:32px;color:#a0a0cc">
+    AI-native Business Operating System
+  </p>
+  <a href="/app" style="
+    display:inline-block;padding:14px 28px;border-radius:24px;
+    background:#6366f1;color:white;text-decoration:none;font-weight:600;font-size:16px">
+    Ouvrir l'app →
+  </a>
+</div>

@@ -9,14 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material/web": "^2.4.1",
     "@nexio/design-system": "workspace:*",
     "@nexio/offline": "workspace:*",
-    "@material/web": "^2.4.1",
     "@sveltejs/kit": "^2.15.0",
     "svelte": "^5.14.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-cloudflare": "^4.7.0",
+    "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
     "typescript": "^5.6.0",

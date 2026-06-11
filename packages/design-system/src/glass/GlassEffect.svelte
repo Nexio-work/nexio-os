@@ -68,7 +68,7 @@
   </div>
 
   <!-- Glow overlay -->
-  <div class="glass-glow" style={`opacity:${cfg.glow};`} />
+  <div class="glass-glow" style={`opacity:${cfg.glow};`}></div>
 </div>
 
 <style>

@@ -58,8 +58,8 @@
         transition:background 0.15s;
         position:relative;
       "
-      onmouseenter="(e: Event) => ((e.currentTarget as HTMLElement).style.background = 'var(--md-sys-color-surface-container-low)')"
-      onmouseleave="(e: Event) => ((e.currentTarget as HTMLElement).style.background = '')"
+      onmouseenter={(e: Event) => { (e.currentTarget as HTMLElement).style.background = 'var(--md-sys-color-surface-container-low)'; }}
+      onmouseleave={(e: Event) => { (e.currentTarget as HTMLElement).style.background = ''; }}
     >
       <!-- Selected indicator -->
       {#if selectedId === mod.id}
