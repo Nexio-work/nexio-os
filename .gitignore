@@ -7,3 +7,8 @@ dist/
 .DS_Store
 Thumbs.db
 .vercel/
+
+# Build artifacts
+apps/pwa/build/
+*.br
+apps/pwa/build/_app/
