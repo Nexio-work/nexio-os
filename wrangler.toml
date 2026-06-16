@@ -1,0 +1,30 @@
+name = "nexio-os"
+main = "apps/api/src/index.ts"
+compatibility_date = "2026-06-11"
+compatibility_flags = ["nodejs_compat"]
+
+# Account
+account_id = "f30dd0d409679ae65e841302cc0caa8c"
+
+# D1 Database (already exists)
+[[d1_databases]]
+binding = "DB"
+database_name = "NEXIO_DB"
+database_id = "03d55e00-5583-4037-80ee-3f8db757a8e4"
+
+# KV for sessions + rate limiting
+[[kv_namespaces]]
+binding = "KV"
+id = "nexio-os-kv"
+preview_id = "nexio-os-kv-preview"
+
+# R2 for uploads
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "nexio-os-assets"
+
+# Variables
+[vars]
+ENVIRONMENT = "production"
+APP_URL = "https://app.nexio.work"
+PUBLIC_URL = "https://nexio.work"

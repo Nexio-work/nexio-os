@@ -6,7 +6,7 @@
   <title>Nexio OS</title>
 </svelte:head>
 
-<div style="
+<div id="nexio-root" style="
   min-height:100vh;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
