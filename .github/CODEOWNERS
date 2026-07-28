@@ -1,0 +1,32 @@
+# CODEOWNERS — automatic reviewer assignment
+# Format: <path-pattern>  @owner1 @owner2
+#
+# Nexio OS is single-operator for now (Fefe), so the human owner is the same
+# everywhere. The interesting line is the per-folder routing for AI agents:
+# when an agent opens a PR, the right reviewer agent must auto-assign.
+
+# Default owner
+*                              @fenoh3ry
+
+# Architecture & cross-cutting — orchestrator territory
+/.agents/                      @fenoh3ry
+/docs/decisions/               @fenoh3ry
+/docs/architecture/            @fenoh3ry
+
+# Backend — backend specialist
+/src/db/                       @fenoh3ry  context:backend
+/src/lib/                      @fenoh3ry  context:backend
+/src/actions/                  @fenoh3ry  context:backend
+
+# Frontend — frontend expert
+/src/components/               @fenoh3ry  context:frontend
+/src/routes/                   @fenoh3ry  context:frontend
+
+# Tests — qa engineer
+/tests/                        @fenoh3ry  context:qa
+
+# CI/CD — orchestrator
+/.github/workflows/            @fenoh3ry  context:devops
+
+# The slop law itself — final human approval only
+/AGENTS.md                     @fenoh3ry
