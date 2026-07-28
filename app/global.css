@@ -29,41 +29,41 @@
 
 :root {
   /* Substrate & surfaces */
-  --background: 36 38% 94%;            /* #f5f1ea cream substrate */
-  --foreground: 30 6% 9%;              /* #1a1816 warm charcoal ink */
-  --card: 0 0% 100%;                   /* #ffffff cards on cream */
-  --card-foreground: 30 6% 9%;         /* ink */
-  --popover: 0 0% 100%;                /* #ffffff popovers */
+  --background: 36 38% 94%; /* #f5f1ea cream substrate */
+  --foreground: 30 6% 9%; /* #1a1816 warm charcoal ink */
+  --card: 0 0% 100%; /* #ffffff cards on cream */
+  --card-foreground: 30 6% 9%; /* ink */
+  --popover: 0 0% 100%; /* #ffffff popovers */
   --popover-foreground: 30 6% 9%;
 
   /* Primary = terracotta — the Nexio OS accent */
-  --primary: 14 73% 42%;               /* #b8451e terracotta */
-  --primary-foreground: 36 38% 94%;    /* cream on terracotta */
+  --primary: 14 73% 42%; /* #b8451e terracotta */
+  --primary-foreground: 36 38% 94%; /* cream on terracotta */
 
   /* Secondary = forest green — link to FATAPLUS, used for agent signature */
-  --secondary: 145 39% 28%;            /* #2d5f3f forest */
-  --secondary-foreground: 0 0% 100%;   /* white on forest */
+  --secondary: 145 39% 28%; /* #2d5f3f forest */
+  --secondary-foreground: 0 0% 100%; /* white on forest */
 
   /* Muted = warm beige (NOT slop gray) */
-  --muted: 36 25% 89%;                 /* #ebe6dc lighter beige */
-  --muted-foreground: 30 8% 36%;       /* #5c574f ink-2 */
+  --muted: 36 25% 89%; /* #ebe6dc lighter beige */
+  --muted-foreground: 30 8% 36%; /* #5c574f ink-2 */
 
   /* Accent slot = terracotta tint background for hover/selected */
-  --accent: 16 65% 92%;                /* #f4e3dc terracotta-soft */
-  --accent-foreground: 14 73% 42%;     /* terracotta on its tint */
+  --accent: 16 65% 92%; /* #f4e3dc terracotta-soft */
+  --accent-foreground: 14 73% 42%; /* terracotta on its tint */
 
   /* Warn = amber for signals */
-  --warn: 43 67% 33%;                  /* #8a6d1b amber */
-  --warn-soft: 45 50% 88%;             /* #f0e8d0 amber-soft */
+  --warn: 43 67% 33%; /* #8a6d1b amber */
+  --warn-soft: 45 50% 88%; /* #f0e8d0 amber-soft */
 
   /* Destructive (kept consistent with terracotta family) */
-  --destructive: 14 73% 42%;           /* same as primary terracotta */
+  --destructive: 14 73% 42%; /* same as primary terracotta */
   --destructive-foreground: 36 38% 94%;
 
   /* Borders = warm beige lines (NEVER slop gray) */
-  --border: 36 30% 82%;                /* #d9d3c7 line */
-  --input: 36 30% 82%;                 /* same warm beige for inputs */
-  --ring: 14 73% 42%;                  /* terracotta focus ring */
+  --border: 36 30% 82%; /* #d9d3c7 line */
+  --input: 36 30% 82%; /* same warm beige for inputs */
+  --ring: 14 73% 42%; /* terracotta focus ring */
 
   /* CRITICAL: square corners everywhere (ADR-0004 §Shape system)
      The only exception is the live status dot, which uses 50%. */
@@ -74,20 +74,20 @@
   --radius-xl: 0;
 
   /* Sidebar (NavigationDrawer at expanded breakpoint) */
-  --sidebar-background: 0 0% 100%;     /* surface */
-  --sidebar-foreground: 30 8% 36%;     /* ink-2 */
-  --sidebar-primary: 14 73% 42%;       /* terracotta */
+  --sidebar-background: 0 0% 100%; /* surface */
+  --sidebar-foreground: 30 8% 36%; /* ink-2 */
+  --sidebar-primary: 14 73% 42%; /* terracotta */
   --sidebar-primary-foreground: 36 38% 94%;
-  --sidebar-accent: 16 65% 92%;        /* terracotta-soft */
+  --sidebar-accent: 16 65% 92%; /* terracotta-soft */
   --sidebar-accent-foreground: 14 73% 42%;
-  --sidebar-border: 36 30% 82%;        /* warm beige */
+  --sidebar-border: 36 30% 82%; /* warm beige */
   --sidebar-ring: 14 73% 42%;
 
   /* Nexio OS custom tokens (not in shadcn convention) */
-  --ink-3: 30 7% 51%;                  /* #8a847a tertiary text */
-  --line-2: 36 25% 89%;                /* #ebe6dc lighter divider */
-  --accent-2: 145 39% 28%;             /* #2d5f3f forest (alias secondary) */
-  --accent-2-soft: 110 25% 89%;        /* #dce8df forest-soft */
+  --ink-3: 30 7% 51%; /* #8a847a tertiary text */
+  --line-2: 36 25% 89%; /* #ebe6dc lighter divider */
+  --accent-2: 145 39% 28%; /* #2d5f3f forest (alias secondary) */
+  --accent-2-soft: 110 25% 89%; /* #dce8df forest-soft */
 
   /* Type roles */
   --font-display: "Instrument Serif", Georgia, serif;
@@ -99,17 +99,17 @@
    with the data.nexio.work language: same warm charcoal logic,
    not blue-charcoal slop. */
 .dark {
-  --background: 30 6% 9%;              /* warm charcoal */
-  --foreground: 36 25% 89%;            /* lighter beige text */
-  --card: 30 6% 12%;                   /* slightly raised warm charcoal */
+  --background: 30 6% 9%; /* warm charcoal */
+  --foreground: 36 25% 89%; /* lighter beige text */
+  --card: 30 6% 12%; /* slightly raised warm charcoal */
   --card-foreground: 36 25% 89%;
   --popover: 30 6% 12%;
   --popover-foreground: 36 25% 89%;
 
-  --primary: 16 65% 60%;               /* lighter terracotta on dark */
+  --primary: 16 65% 60%; /* lighter terracotta on dark */
   --primary-foreground: 30 6% 9%;
 
-  --secondary: 145 30% 50%;            /* lighter forest on dark */
+  --secondary: 145 30% 50%; /* lighter forest on dark */
   --secondary-foreground: 30 6% 9%;
 
   --muted: 30 6% 16%;
@@ -162,7 +162,9 @@
   }
 
   /* Display role = Instrument Serif (per ADR-0004 type roles) */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
     font-weight: 400; /* Instrument Serif only has 400 */
     letter-spacing: -0.005em;
@@ -224,8 +226,13 @@
 }
 
 @keyframes nexio-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
 
 /* Mono uppercase label — for genuine labels only (file paths, codes,

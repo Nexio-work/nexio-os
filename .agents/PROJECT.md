@@ -15,8 +15,8 @@ FATAPLUS. It is not an app. It is a workspace OS — a unified surface where
 an AI agent, a newsfeed of tasks and signals, and a file browser coexist
 in a desktop metaphor.
 
-**One sentence pitch:** *The OS for one person's work, where the agent can
-do everything the UI can do because both speak to the same actions layer.*
+**One sentence pitch:** _The OS for one person's work, where the agent can
+do everything the UI can do because both speak to the same actions layer._
 
 ## 2. The product signature
 
@@ -37,31 +37,31 @@ If a screen shows none of these, it is not Nexio OS.
 
 These three documents bind every agent. Read them before writing a line:
 
-| Document | Authority | Why |
-|---|---|---|
-| `AGENTS.md` (root) | **The slop design law.** Read it before AND after every UI change. | Nexio OS is a designed product, not a template. |
-| `.agents/<role>.md` | Role-specific prompt and checklist. | Each agent has a strict perimeter. |
-| `docs/decisions/` | ADRs (Architecture Decision Records). | Decisions are dated, justified, reversible-on-purpose. |
+| Document            | Authority                                                          | Why                                                    |
+| ------------------- | ------------------------------------------------------------------ | ------------------------------------------------------ |
+| `AGENTS.md` (root)  | **The slop design law.** Read it before AND after every UI change. | Nexio OS is a designed product, not a template.        |
+| `.agents/<role>.md` | Role-specific prompt and checklist.                                | Each agent has a strict perimeter.                     |
+| `docs/decisions/`   | ADRs (Architecture Decision Records).                              | Decisions are dated, justified, reversible-on-purpose. |
 
 **Never override these with "I know better" instinct.** Fefe's explicit
 word overrides defaults. Nothing else does.
 
 ## 4. The stack (do not improvise)
 
-| Layer | Technology | Why |
-|---|---|---|
-| Frontend framework | **React Router v7** (framework mode) | Native to the agent-native framework. |
-| Build tool | **Vite** | Native to RR7 + agent-native. |
-| Server engine | **Nitro** | Native to agent-native, deploys to Cloudflare. |
-| ORM | **Drizzle** | Native to agent-native, type-safe, works with D1. |
-| Database | **Cloudflare D1** | Edge-native, already in the FATAPLUS stack. |
-| Object storage | **Cloudflare R2** | Same. |
-| Hosting | **Cloudflare Pages + Workers** | Same. |
-| Agent runtime | **Pi.dev SDK** (`@earendil-works/pi-coding-agent`) | Lifecycle, branching, tool calling. |
-| LLM gateway | **9Router** (OpenAI-compatible, Tailscale `100.112.45.36:20128`) | Routes to Claude/GPT/Mistral without code changes. |
-| Framework | **agent-native** (`@agent-native/core`) | Define work once: UI + agent + HTTP + MCP + CLI. |
-| Package manager | **pnpm 11+** | Required by agent-native. |
-| Node | **22 LTS** | Current LTS, required by Wrangler 4. |
+| Layer              | Technology                                                       | Why                                                |
+| ------------------ | ---------------------------------------------------------------- | -------------------------------------------------- |
+| Frontend framework | **React Router v7** (framework mode)                             | Native to the agent-native framework.              |
+| Build tool         | **Vite**                                                         | Native to RR7 + agent-native.                      |
+| Server engine      | **Nitro**                                                        | Native to agent-native, deploys to Cloudflare.     |
+| ORM                | **Drizzle**                                                      | Native to agent-native, type-safe, works with D1.  |
+| Database           | **Cloudflare D1**                                                | Edge-native, already in the FATAPLUS stack.        |
+| Object storage     | **Cloudflare R2**                                                | Same.                                              |
+| Hosting            | **Cloudflare Pages + Workers**                                   | Same.                                              |
+| Agent runtime      | **Pi.dev SDK** (`@earendil-works/pi-coding-agent`)               | Lifecycle, branching, tool calling.                |
+| LLM gateway        | **9Router** (OpenAI-compatible, Tailscale `100.112.45.36:20128`) | Routes to Claude/GPT/Mistral without code changes. |
+| Framework          | **agent-native** (`@agent-native/core`)                          | Define work once: UI + agent + HTTP + MCP + CLI.   |
+| Package manager    | **pnpm 11+**                                                     | Required by agent-native.                          |
+| Node               | **22 LTS**                                                       | Current LTS, required by Wrangler 4.               |
 
 Do not introduce Next.js, Tailwind global, Jest, Express, or any framework
 that conflicts with the above without an ADR.
@@ -155,4 +155,4 @@ tests/          Unit (Vitest), integration, e2e (Playwright).
 
 ---
 
-*Last updated: 2026-07-28 · Phase 0 — Setup.*
+_Last updated: 2026-07-28 · Phase 0 — Setup._

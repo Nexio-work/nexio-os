@@ -11,27 +11,29 @@
 ## Your perimeter
 
 **You own:**
+
 - `src/components/` — React components, organized by domain.
 - `src/routes/` — React Router v7 file-based routes (loaders, actions, JSX).
 - `src/styles/` — Global CSS, design tokens, theme files.
 - `public/` — Static assets, icons (only real brand SVGs, never invented logos).
 
 **You DO NOT touch:**
+
 - `src/db/`, `src/actions/`, `src/lib/` — Backend specialist's territory.
-  You *consume* actions and clients, you do not modify them.
+  You _consume_ actions and clients, you do not modify them.
 - `AGENTS.md` — Read-only law.
 
 ## Your stack
 
-| Tool | Version | Why |
-|---|---|---|
-| React Router v7 | latest (framework mode) | Routing + SSR via Nitro. |
-| Vite | latest | Build tool, HMR. |
-| Behavior + a11y | **Radix UI Primitives** (headless) | Dialog, Popover, Tabs, Dropdown. Zero style imposed. |
-| Styling | **Tailwind Variants** (`tv()`) | Typed variants over the design tokens. NOT global Tailwind. |
-| Animation | **motion/react** (motion.dev) | Springs, scroll-linked, gestures. NOT Framer. |
-| Command palette | **cmdk** + custom skin | Linear/Vercel-grade behavior. |
-| Iconography | Bespoke SVG only | No Lucide, no icon-in-a-tile. |
+| Tool            | Version                            | Why                                                         |
+| --------------- | ---------------------------------- | ----------------------------------------------------------- |
+| React Router v7 | latest (framework mode)            | Routing + SSR via Nitro.                                    |
+| Vite            | latest                             | Build tool, HMR.                                            |
+| Behavior + a11y | **Radix UI Primitives** (headless) | Dialog, Popover, Tabs, Dropdown. Zero style imposed.        |
+| Styling         | **Tailwind Variants** (`tv()`)     | Typed variants over the design tokens. NOT global Tailwind. |
+| Animation       | **motion/react** (motion.dev)      | Springs, scroll-linked, gestures. NOT Framer.               |
+| Command palette | **cmdk** + custom skin             | Linear/Vercel-grade behavior.                               |
+| Iconography     | Bespoke SVG only                   | No Lucide, no icon-in-a-tile.                               |
 
 ## Design system — data.nexio.work (binding)
 
@@ -41,40 +43,40 @@ writing any CSS.
 
 ```css
 :root {
-  --bg:           #f5f1ea;   /* cream substrate — never use slop gray */
-  --surface:      #ffffff;   /* cards on cream */
-  --ink:          #1a1816;   /* warm charcoal — never use blue-charcoal */
-  --ink-2:        #5c574f;   /* secondary text */
-  --ink-3:        #8a847a;   /* meta labels */
-  --line:         #d9d3c7;   /* warm beige borders — never slop gray */
-  --line-2:       #ebe6dc;   /* lighter divider */
-  --accent:       #b8451e;   /* terracotta — primary accent */
-  --accent-soft:  #f4e3dc;   /* terracotta tint backgrounds */
-  --accent-2:     #2d5f3f;   /* forest green — secondary accent (link to FATAPLUS) */
-  --accent-2-soft:#dce8df;   /* forest tint backgrounds */
-  --warn:         #8a6d1b;   /* amber for signals */
-  --warn-soft:    #f0e8d0;   /* amber tint backgrounds */
+  --bg: #f5f1ea; /* cream substrate — never use slop gray */
+  --surface: #ffffff; /* cards on cream */
+  --ink: #1a1816; /* warm charcoal — never use blue-charcoal */
+  --ink-2: #5c574f; /* secondary text */
+  --ink-3: #8a847a; /* meta labels */
+  --line: #d9d3c7; /* warm beige borders — never slop gray */
+  --line-2: #ebe6dc; /* lighter divider */
+  --accent: #b8451e; /* terracotta — primary accent */
+  --accent-soft: #f4e3dc; /* terracotta tint backgrounds */
+  --accent-2: #2d5f3f; /* forest green — secondary accent (link to FATAPLUS) */
+  --accent-2-soft: #dce8df; /* forest tint backgrounds */
+  --warn: #8a6d1b; /* amber for signals */
+  --warn-soft: #f0e8d0; /* amber tint backgrounds */
 
-  --mono:  'JetBrains Mono', ui-monospace, monospace;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --body:  system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --serif: "Instrument Serif", Georgia, serif;
+  --body: system-ui, -apple-system, sans-serif;
 }
 ```
 
 ### Type roles
 
-| Role | Family | Where |
-|---|---|---|
-| Display | `--serif` (Instrument Serif) | Page titles, card titles, KPI values. Italic for signature accents. |
-| Body | `--body` (system-ui) | Paragraphs, descriptions, default text. |
-| Data | `--mono` (JetBrains Mono) | Labels, codes, timestamps, amounts. Uppercase + tracking ONLY on real labels. |
+| Role    | Family                       | Where                                                                         |
+| ------- | ---------------------------- | ----------------------------------------------------------------------------- |
+| Display | `--serif` (Instrument Serif) | Page titles, card titles, KPI values. Italic for signature accents.           |
+| Body    | `--body` (system-ui)         | Paragraphs, descriptions, default text.                                       |
+| Data    | `--mono` (JetBrains Mono)    | Labels, codes, timestamps, amounts. Uppercase + tracking ONLY on real labels. |
 
 ### Shape system — SQUARE EVERYWHERE
 
-| Element | Border-radius |
-|---|---|
-| Cards, buttons, inputs, chat bubbles, KPI tiles, brand mark | `0` |
-| Live dot (status indicator) | `50%` (only exception) |
+| Element                                                     | Border-radius          |
+| ----------------------------------------------------------- | ---------------------- |
+| Cards, buttons, inputs, chat bubbles, KPI tiles, brand mark | `0`                    |
+| Live dot (status indicator)                                 | `50%` (only exception) |
 
 **No `border-radius` on any container.** This is the deliberate counter-slop
 signature of Nexio OS.
@@ -84,12 +86,12 @@ signature of Nexio OS.
 Per AGENTS.md, the "accent-bar card" (colored bar on a card edge) is slop.
 The 4 card types differentiate through:
 
-| Type | How |
-|---|---|
-| **Nudge** | `URGENT` mono badge + source in terracotta. |
-| **Task** | Neutral. Subtasks with forest checkmarks. |
-| **Agent** | Title in italic Instrument Serif, forest. Dark code preview of the `defineAction` (signature artifact). |
-| **Signal** | Card background in `--warn-soft`. Stat in serif. |
+| Type       | How                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------- |
+| **Nudge**  | `URGENT` mono badge + source in terracotta.                                                             |
+| **Task**   | Neutral. Subtasks with forest checkmarks.                                                               |
+| **Agent**  | Title in italic Instrument Serif, forest. Dark code preview of the `defineAction` (signature artifact). |
+| **Signal** | Card background in `--warn-soft`. Stat in serif.                                                        |
 
 Hover = border tonal shift (`--line` → `--ink-3`). NEVER translate / scale / shadow.
 
@@ -136,11 +138,11 @@ you up most often in Nexio OS specifically:
 The Phase 1 shell follows **Material 3 adaptive design** with data.nexio.work
 tokens. Three breakpoints, three navigation patterns:
 
-| Breakpoint | Width | Navigation | Layout |
-|---|---|---|---|
-| Compact | < 600dp | Bottom Nav (5 items max) | Single column |
-| Medium | 600-840dp | Navigation Rail 60dp | Single column large |
-| Expanded | ≥ 840dp | Navigation Drawer 200dp | List-Detail (feed + detail pane) |
+| Breakpoint | Width     | Navigation               | Layout                           |
+| ---------- | --------- | ------------------------ | -------------------------------- |
+| Compact    | < 600dp   | Bottom Nav (5 items max) | Single column                    |
+| Medium     | 600-840dp | Navigation Rail 60dp     | Single column large              |
+| Expanded   | ≥ 840dp   | Navigation Drawer 200dp  | List-Detail (feed + detail pane) |
 
 The locked modules (`Mail`, `Office`, `Reels`) are visible but clearly
 locked — a quiet "Phase 2" label, no glow, no fake interactivity.

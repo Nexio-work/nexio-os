@@ -10,11 +10,13 @@
 ## Your perimeter
 
 **You own:**
+
 - `src/db/` — Drizzle schema, migrations, raw queries.
 - `src/actions/` — Unified actions (UI + agent + HTTP + MCP + CLI).
 - `src/lib/` — Infrastructure clients: `9router.ts`, `hermes.ts`, `pi-dev.ts`.
 
 **You DO NOT touch:**
+
 - `src/components/` — Frontend expert's territory.
 - `src/routes/` — Frontend expert's territory (you may add loaders/actions
   if asked, but only the data logic, never the JSX).
@@ -23,15 +25,15 @@
 
 ## Your stack (memorize)
 
-| Tool | Version | Why |
-|---|---|---|
-| Drizzle ORM | latest | Schema in TypeScript, migrations generated. |
-| Cloudflare D1 | — | SQLite at the edge. Region EU (Frankfurt) for low latency from Madagascar. |
-| Cloudflare R2 | — | Files. Buckets: `nexio-dev`, `nexio-staging`, `nexio-prod`. |
-| Nitro | latest | Server engine from agent-native. Routes in `src/routes/api/`. |
-| agent-native `defineAction` | latest | One action serves UI + agent + HTTP + MCP. Never duplicate logic. |
-| Pi.dev SDK | latest | `AgentSession`, `defineTool`, `ModelRuntime`. |
-| 9Router | Tailscale `100.112.45.36:20128` | OpenAI-compatible. Always via `src/lib/9router.ts`, never call directly. |
+| Tool                        | Version                         | Why                                                                        |
+| --------------------------- | ------------------------------- | -------------------------------------------------------------------------- |
+| Drizzle ORM                 | latest                          | Schema in TypeScript, migrations generated.                                |
+| Cloudflare D1               | —                               | SQLite at the edge. Region EU (Frankfurt) for low latency from Madagascar. |
+| Cloudflare R2               | —                               | Files. Buckets: `nexio-dev`, `nexio-staging`, `nexio-prod`.                |
+| Nitro                       | latest                          | Server engine from agent-native. Routes in `src/routes/api/`.              |
+| agent-native `defineAction` | latest                          | One action serves UI + agent + HTTP + MCP. Never duplicate logic.          |
+| Pi.dev SDK                  | latest                          | `AgentSession`, `defineTool`, `ModelRuntime`.                              |
+| 9Router                     | Tailscale `100.112.45.36:20128` | OpenAI-compatible. Always via `src/lib/9router.ts`, never call directly.   |
 
 ## Your rules
 
@@ -47,7 +49,7 @@
    Never throw across the action boundary. Errors are values.
 5. **Never log secrets.** API keys, JWTs, 9Router bearer tokens are
    redacted in every log line. Audit logs (`audit_logs` table) record the
-   *intent* and the *outcome*, never the credentials.
+   _intent_ and the _outcome_, never the credentials.
 6. **Migrations are forward-only by default.** A down migration is a
    new migration, not a revert. The rollback runbook documents this.
 7. **Test every action.** Each action file has a sibling
@@ -63,12 +65,14 @@ stable contract so the real one drops in later.
 // src/lib/hermes.ts — the contract
 
 export interface HermesClient {
-  morningBriefing(input: { userId: string; timezone: string }): Promise<
-    Result<BriefingItem[]>
-  >;
-  suggestNextActions(input: { userId: string; context: TaskContext[] }): Promise<
-    Result<Suggestion[]>
-  >;
+  morningBriefing(input: {
+    userId: string;
+    timezone: string;
+  }): Promise<Result<BriefingItem[]>>;
+  suggestNextActions(input: {
+    userId: string;
+    context: TaskContext[];
+  }): Promise<Result<Suggestion[]>>;
   learn(input: { userId: string; event: LearnEvent }): Promise<Result<void>>;
 }
 

@@ -10,24 +10,26 @@
 ## Your perimeter
 
 **You own:**
+
 - `tests/unit/` — Vitest unit tests, one file per source module.
 - `tests/integration/` — Vitest with real D1 (Miniflare) and R2 bindings.
 - `tests/e2e/` — Playwright end-to-end tests against a preview deploy.
 - `docs/test-plans/` — Human-readable test plans for each feature.
 
 **You DO NOT touch:**
+
 - Production code in `src/` — you file issues instead. The only exception:
   you may add `data-testid` attributes when a test needs them.
 - `AGENTS.md` — Read-only.
 
 ## Your stack
 
-| Tool | Why |
-|---|---|
-| Vitest | Unit and integration. Fast, Vite-native, JSX-aware. |
-| Miniflare | Local D1 + R2 + Workers in tests, identical to prod runtime. |
-| Playwright | E2E against preview deploys. Chromium + WebKit (Safari) for PWA. |
-| @cloudflare/vitest-pool-workers | Run Vitest inside the Workers runtime. |
+| Tool                            | Why                                                              |
+| ------------------------------- | ---------------------------------------------------------------- |
+| Vitest                          | Unit and integration. Fast, Vite-native, JSX-aware.              |
+| Miniflare                       | Local D1 + R2 + Workers in tests, identical to prod runtime.     |
+| Playwright                      | E2E against preview deploys. Chromium + WebKit (Safari) for PWA. |
+| @cloudflare/vitest-pool-workers | Run Vitest inside the Workers runtime.                           |
 
 ## Your test pyramid
 
@@ -56,24 +58,29 @@ Before a feature is implemented, you write `docs/test-plans/<feature>.md`:
 # Test Plan: <feature>
 
 ## Scope
+
 What this feature does, in one paragraph.
 
 ## Unit tests
+
 - [ ] `<function>` returns X when input is Y
 - [ ] `<function>` throws ZodError when input is malformed
 - [ ] <...>
 
 ## Integration tests
+
 - [ ] `createTask` action persists to D1 and returns the row
 - [ ] `createTask` action rolls back if audit log write fails
 - [ ] <...>
 
 ## E2E tests
+
 - [ ] User can post a task via the feed UI
 - [ ] Agent can create a task via tool call, task appears in feed
 - [ ] <...>
 
 ## Edge cases (must cover)
+
 - Empty input, max-length input, Unicode, emoji
 - Concurrent writes to the same row
 - D1 timeout, R2 quota exceeded, 9Router 5xx
@@ -81,6 +88,7 @@ What this feature does, in one paragraph.
 - prefers-reduced-motion: no animation should hide content
 
 ## A11y checks
+
 - Keyboard-only navigation completes the critical journey
 - Screen reader announces every state change
 - Color contrast passes WCAG AA
@@ -88,28 +96,28 @@ What this feature does, in one paragraph.
 
 ## What you test for, beyond "it works"
 
-| Category | Concrete checks |
-|---|---|
-| **Validation** | Zod schema rejects every malformed input. Generate fuzz inputs. |
-| **Auth** | Unauthenticated request returns 401, not 500. Expired session refreshes. |
-| **Idempotency** | Same action called twice with same idempotency key = same result. |
-| **Concurrency** | Two simultaneous writes to same row: one wins, other gets conflict error. |
-| **Errors** | D1 timeout, R2 5xx, 9Router 5xx: action returns Result.error, never throws. |
-| **Observability** | Audit log row written for every mutating action, with userId + outcome. |
-| **A11y** | Keyboard-only navigation, focus rings visible, screen-reader announcements. |
-| **Performance** | Action p95 < 200ms for hot paths. List endpoints paginate. |
-| **PWA** | Installable, offline shell loads, manifest is valid. |
-| **Anti-slop** | No opacity:0 entrance animations leak content (test with JS disabled). |
+| Category          | Concrete checks                                                             |
+| ----------------- | --------------------------------------------------------------------------- |
+| **Validation**    | Zod schema rejects every malformed input. Generate fuzz inputs.             |
+| **Auth**          | Unauthenticated request returns 401, not 500. Expired session refreshes.    |
+| **Idempotency**   | Same action called twice with same idempotency key = same result.           |
+| **Concurrency**   | Two simultaneous writes to same row: one wins, other gets conflict error.   |
+| **Errors**        | D1 timeout, R2 5xx, 9Router 5xx: action returns Result.error, never throws. |
+| **Observability** | Audit log row written for every mutating action, with userId + outcome.     |
+| **A11y**          | Keyboard-only navigation, focus rings visible, screen-reader announcements. |
+| **Performance**   | Action p95 < 200ms for hot paths. List endpoints paginate.                  |
+| **PWA**           | Installable, offline shell loads, manifest is valid.                        |
+| **Anti-slop**     | No opacity:0 entrance animations leak content (test with JS disabled).      |
 
 ## The "content visible with JS disabled" test
 
 This is non-negotiable per AGENTS.md. Your E2E suite must include:
 
 ```typescript
-test('newsfeed renders with JavaScript disabled', async ({ browser }) => {
+test("newsfeed renders with JavaScript disabled", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto('/'); // server-rendered, must show feed
+  await page.goto("/"); // server-rendered, must show feed
   await expect(page.locator('[data-testid="feed"]')).toBeVisible();
   await expect(page.locator('[data-testid="feed-item"]').first()).toBeVisible();
 });

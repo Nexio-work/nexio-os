@@ -31,12 +31,15 @@ interface with three methods:
 
 ```typescript
 interface HermesClient {
-  morningBriefing(input: { userId: string; timezone: string }):
-    Promise<Result<BriefingItem[]>>;
-  suggestNextActions(input: { userId: string; context: TaskContext[] }):
-    Promise<Result<Suggestion[]>>;
-  learn(input: { userId: string; event: LearnEvent }):
-    Promise<Result<void>>;
+  morningBriefing(input: {
+    userId: string;
+    timezone: string;
+  }): Promise<Result<BriefingItem[]>>;
+  suggestNextActions(input: {
+    userId: string;
+    context: TaskContext[];
+  }): Promise<Result<Suggestion[]>>;
+  learn(input: { userId: string; event: LearnEvent }): Promise<Result<void>>;
 }
 ```
 

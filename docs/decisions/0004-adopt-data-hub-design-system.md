@@ -41,46 +41,46 @@ below are the single source of truth for every Nexio OS surface.
 ```css
 :root {
   /* Palette */
-  --bg:           #f5f1ea;   /* cream substrate */
-  --surface:      #ffffff;   /* cards on cream */
-  --ink:          #1a1816;   /* warm charcoal text + fills */
-  --ink-2:        #5c574f;   /* secondary text */
-  --ink-3:        #8a847a;   /* tertiary, meta labels */
-  --line:         #d9d3c7;   /* warm beige borders (NOT slop gray) */
-  --line-2:       #ebe6dc;   /* lighter divider */
-  --accent:       #b8451e;   /* terracotta — primary accent */
-  --accent-soft:  #f4e3dc;   /* terracotta tint backgrounds */
-  --accent-2:     #2d5f3f;   /* forest green — secondary accent */
-  --accent-2-soft:#dce8df;   /* forest tint backgrounds */
-  --warn:         #8a6d1b;   /* amber for signals */
-  --warn-soft:    #f0e8d0;   /* amber tint backgrounds */
+  --bg: #f5f1ea; /* cream substrate */
+  --surface: #ffffff; /* cards on cream */
+  --ink: #1a1816; /* warm charcoal text + fills */
+  --ink-2: #5c574f; /* secondary text */
+  --ink-3: #8a847a; /* tertiary, meta labels */
+  --line: #d9d3c7; /* warm beige borders (NOT slop gray) */
+  --line-2: #ebe6dc; /* lighter divider */
+  --accent: #b8451e; /* terracotta — primary accent */
+  --accent-soft: #f4e3dc; /* terracotta tint backgrounds */
+  --accent-2: #2d5f3f; /* forest green — secondary accent */
+  --accent-2-soft: #dce8df; /* forest tint backgrounds */
+  --warn: #8a6d1b; /* amber for signals */
+  --warn-soft: #f0e8d0; /* amber tint backgrounds */
 
   /* Type */
-  --mono:  'JetBrains Mono', ui-monospace, monospace;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --body:  system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --serif: "Instrument Serif", Georgia, serif;
+  --body: system-ui, -apple-system, sans-serif;
 }
 ```
 
 ## Type roles
 
-| Role | Family | Where |
-|---|---|---|
-| Display | `--serif` (Instrument Serif) | Page titles, card titles, KPI values. Italic for signature accents (agent card). |
-| Body | `--body` (system-ui) | Paragraphs, descriptions, default text. |
-| Data | `--mono` (JetBrains Mono) | Labels, codes, timestamps, amounts, meta tags. Uppercase + tracking only on real labels (file paths, codes). |
+| Role    | Family                       | Where                                                                                                        |
+| ------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Display | `--serif` (Instrument Serif) | Page titles, card titles, KPI values. Italic for signature accents (agent card).                             |
+| Body    | `--body` (system-ui)         | Paragraphs, descriptions, default text.                                                                      |
+| Data    | `--mono` (JetBrains Mono)    | Labels, codes, timestamps, amounts, meta tags. Uppercase + tracking only on real labels (file paths, codes). |
 
 ## Shape system
 
-| Element | Border-radius | Why |
-|---|---|---|
-| Cards | `0` | Square, intentional, brutalist. |
-| Buttons | `0` | No pill, no rounded. |
-| Inputs | `0` | Square. |
-| Chat bubbles | `0` | Square both sides. |
-| KPI tiles | `0` | Square. |
-| Brand mark `NX` | `0` | Strict square. |
-| Live dot | `50%` | The one exception: a real status indicator. |
+| Element         | Border-radius | Why                                         |
+| --------------- | ------------- | ------------------------------------------- |
+| Cards           | `0`           | Square, intentional, brutalist.             |
+| Buttons         | `0`           | No pill, no rounded.                        |
+| Inputs          | `0`           | Square.                                     |
+| Chat bubbles    | `0`           | Square both sides.                          |
+| KPI tiles       | `0`           | Square.                                     |
+| Brand mark `NX` | `0`           | Strict square.                              |
+| Live dot        | `50%`         | The one exception: a real status indicator. |
 
 No `border-radius` on any container. This is the deliberate counter-slop
 signature of Nexio OS.
@@ -90,12 +90,12 @@ signature of Nexio OS.
 The AGENTS.md law forbids the "accent-bar card" (a colored bar on the edge
 of a card). The 4 card types differentiate through:
 
-| Type | Differentiation |
-|---|---|
-| **Nudge** | `URGENT` mono badge + source label in terracotta. |
-| **Task** | Neutral. Subtasks with forest-green checkmarks. |
-| **Agent** | Title in italic Instrument Serif, forest color. Dark code preview of the `defineAction` call (the signature artifact). |
-| **Signal** | Card background in `--warn-soft`. Stat in Instrument Serif. |
+| Type       | Differentiation                                                                                                        |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Nudge**  | `URGENT` mono badge + source label in terracotta.                                                                      |
+| **Task**   | Neutral. Subtasks with forest-green checkmarks.                                                                        |
+| **Agent**  | Title in italic Instrument Serif, forest color. Dark code preview of the `defineAction` call (the signature artifact). |
+| **Signal** | Card background in `--warn-soft`. Stat in Instrument Serif.                                                            |
 
 No edge bars. No glow. No hover-lift — hover is a border tonal shift
 (`--line` → `--ink-3`).
