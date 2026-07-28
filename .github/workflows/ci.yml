@@ -121,6 +121,8 @@ jobs:
 
       - name: Run unit + integration tests
         run: pnpm test --coverage
+        env:
+          BETTER_AUTH_SECRET: test-secret-key-for-ci-tests-12345
 
       - name: Upload coverage artifact
         if: always()
