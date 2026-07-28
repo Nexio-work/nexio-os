@@ -8,6 +8,8 @@ build/
 .wrangler/
 .output/
 .vite/
+.deploy-tmp/
+.react-router/
 
 # Environment & secrets
 .dev.vars
@@ -28,6 +30,7 @@ build/
 .remember/
 .supermemory/
 .agent/
+.superpowers/
 
 # Test & coverage
 coverage/
@@ -45,3 +48,5 @@ Thumbs.db
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+.generated/
