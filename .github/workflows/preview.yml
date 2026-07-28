@@ -43,6 +43,7 @@ jobs:
         run: pnpm build
 
       - name: Deploy to Cloudflare Pages (preview branch)
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -53,6 +54,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
 
       - name: Post preview URL as PR comment
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         uses: actions/github-script@v7
         with:
           script: |
