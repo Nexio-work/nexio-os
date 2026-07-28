@@ -1,14 +1,47 @@
+# Dependencies
 node_modules/
-dist/
-.svelte-kit/
-.wrangler/
-.env*
-*.log
-.DS_Store
-Thumbs.db
-.vercel/
+.pnpm-store/
 
-# Build artifacts
-apps/pwa/build/
-*.br
-apps/pwa/build/_app/
+# Build outputs
+dist/
+build/
+.wrangler/
+.output/
+.vite/
+
+# Environment & secrets
+.dev.vars
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# IDE & editor
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# Local agent caches (not source of truth)
+.remember/
+.supermemory/
+.agent/
+
+# Test & coverage
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# OS files
+Thumbs.db
+
+# Cloudflare
+.wrangler/cache/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
