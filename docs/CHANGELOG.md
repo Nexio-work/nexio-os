@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 once it reaches v1.0.0. Pre-1.0 versions may break between minor bumps.
 
 Categories:
+
 - **Added** — new features (`feat`)
 - **Changed** — changes to existing functionality (`refactor`, `perf`)
 - **Deprecated** — soon-to-be removed
@@ -19,6 +20,7 @@ Categories:
 ## Unreleased
 
 ### Added
+
 - Project scaffolding: AGENTS.md (anti-slop law), README, LICENSE (AGPL-3.0).
 - Agent contracts: orchestrator, backend, frontend, QA, reviewer, PR manager.
 - CI/CD: 5-gate pipeline (quality, security, tests, build, e2e).

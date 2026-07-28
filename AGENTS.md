@@ -2,7 +2,6 @@
 <!--  THE pols.dev ANTI-SLOP DESIGN LAW  ·  https://pols.dev/slop.md          -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 
-
 ---
 
 # The anti-slop design law — read this every time
@@ -28,8 +27,6 @@ exactly that, because they asked; their direction wins, 100%. Absent that
 direction, this file is law.
 
 ---
-
-
 
 # What is AI slop?
 
@@ -500,6 +497,7 @@ The giant brand word at the bottom of a page is a strong move ONLY when it is
 actually composed. Pasting big text down there to tick the "signature wordmark"
 box, with none of the craft, is slop, and it fails in a stack of specific,
 checkable ways — often all at once in the worst version:
+
 - It is not centered, and not aligned to anything: the word sits crooked in its
   space.
 - It is clipped: the tops of the caps (the peak of a `D`, an `E`, an ascender)
@@ -509,12 +507,12 @@ checkable ways — often all at once in the worst version:
   it, so two gradients clash instead of one surface reading cleanly.
 - The typeface is a default and the treatment is nothing: flat text pasted on, no
   letter-spacing, no case decision, no effect, no idea.
-The reason this move works when it works is the creative twist: generous letter
-spacing, a deliberate case (often full caps), room above and below, a colour or
-texture that belongs to the brand, the word bleeding intentionally off one edge
-while staying whole and centered on the others. Do THAT, or do not put the big
-wordmark there at all. A signature is a composition, never text dropped in to
-satisfy a rule.
+  The reason this move works when it works is the creative twist: generous letter
+  spacing, a deliberate case (often full caps), room above and below, a colour or
+  texture that belongs to the brand, the word bleeding intentionally off one edge
+  while staying whole and centered on the others. Do THAT, or do not put the big
+  wordmark there at all. A signature is a composition, never text dropped in to
+  satisfy a rule.
 
 ## Colliding colours, and hard colour seams between sections
 
@@ -644,14 +642,15 @@ could sit behind any product.
 ## Drifting soft-blend gradient blobs (the candy aurora)
 
 A handful of big, soft, blurred radial-gradient blobs floating behind the content
+
 - one yellow, one purple, one green - each at roughly `opacity: 0.5` with
-`mix-blend-mode: multiply` and a light `blur`, so they melt into a pastel aurora:
-this is one of the most recognizable machine-made backgrounds there is. The
-multiply-and-blur is exactly what makes it read as the generic "soft gradient
-orbs" template - and muting the hexes does not rescue it, it just makes a tidier
-version of the same slop. If the background needs life, author it: directional
-light with real falloff, a crafted illustration or line field, a grained gradient
-with one deliberate colour - not three tinted blobs drifting behind everything.
+  `mix-blend-mode: multiply` and a light `blur`, so they melt into a pastel aurora:
+  this is one of the most recognizable machine-made backgrounds there is. The
+  multiply-and-blur is exactly what makes it read as the generic "soft gradient
+  orbs" template - and muting the hexes does not rescue it, it just makes a tidier
+  version of the same slop. If the background needs life, author it: directional
+  light with real falloff, a crafted illustration or line field, a grained gradient
+  with one deliberate colour - not three tinted blobs drifting behind everything.
 
 ## Radial glow halo behind an object
 
@@ -715,6 +714,7 @@ moment it carries running labels and status text. Pulling a font off a good site
 is not the same as choosing one for this brief.
 Heavier, bolder, or more "designy" is not more distinctive; it is still the
 recognizable free default. Two hard rules now:
+
 1. Stop cycling Google fonts hunting for the safe one. The face that carries the
    identity has to be genuinely distinctive, and at this bar that usually means
    a licensed or self-hosted typeface, used with conviction. A plain neutral
@@ -782,6 +782,7 @@ dissolves into the sections above and below with no seam.
 WHAT ACTUALLY WORKS (verified at both edges, after two failed tries):
 mask the IMAGE'S OWN pixels, and get all four of these right together, or it
 still bands.
+
 1. Mask, not overlay. A color-gradient overlay leaves the image at full opacity
    underneath and the eye catches the join. Fade the image itself:
    mask-image: linear-gradient(to bottom, transparent 0%, ... #000 31%,
@@ -795,11 +796,11 @@ still bands.
 4. Continuous page color. The sections above and below must be the same
    background color, so the masked-away edges reveal one unbroken surface with
    nothing to seam against.
-The failure that made the BOTTOM worse: a text-contrast scrim that ended at the
-section boundary at partial opacity. That scrim becomes its own hard band at the
-edge. Fix: any darkening for text must sit only behind the text and fade back to
-transparent BEFORE both edges; carry the rest of the legibility on a strong
-text-shadow.
+   The failure that made the BOTTOM worse: a text-contrast scrim that ended at the
+   section boundary at partial opacity. That scrim becomes its own hard band at the
+   edge. Fix: any darkening for text must sit only behind the text and fade back to
+   transparent BEFORE both edges; carry the rest of the legibility on a strong
+   text-shadow.
 
 ## Saturated accent color
 
@@ -1018,7 +1019,7 @@ Everything above is surface. The real problem is making no creative decision.
 You can avoid every single item on this list and still ship slop, because the
 output reads as generated when nothing was actually invented. A checklist
 produces a clean miss, not a design. These next entries are the ones that
-caught a build that was *trying* to avoid the list.
+caught a build that was _trying_ to avoid the list.
 
 ## Even the "tasteful" font swap
 
@@ -1148,6 +1149,7 @@ thick chunky one). All of it sits over a real photographic backdrop so the
 refraction has something to bend.
 
 Shared base:
+
 - Fill: #2575FF. Thick variant drops fill to 50% opacity so the background reads
   through the glass; thin variant keeps it solid.
 - Label + icon: #FFFFFF at 100%. Type: Geist Medium, 20. Icon-to-label gap: 8.
@@ -1162,7 +1164,8 @@ Shared base:
   bloom is the slop one.
 
 Glass material parameters:
-- Thin pill:  Light angle -45deg, Light 80%. Refraction 80. Depth 2.
+
+- Thin pill: Light angle -45deg, Light 80%. Refraction 80. Depth 2.
   Dispersion 40. Frost 6. Splay 0.
 - Thick pill: Light angle -50deg, Light 60%. Refraction 64. Depth 44.
   Dispersion 67. Frost 2. Splay 20.
@@ -1384,16 +1387,17 @@ Reusable techniques, each one a concrete option for a signature.
 DISCLAIMER, and it applies to this entire file, not just this section. These are
 tools for the right context, never a checklist to run top to bottom. There are
 two equal and opposite failures:
+
 - Using everything. Stacking a serif headline AND an ascii field AND glass AND a
   gradient icon AND a full-bleed scene makes noise, not a design. You do NOT
   need to use everything. Pick only the few moves that fit this brand and page.
 - Using nothing that fits. Leaving a page flat and generic when it clearly calls
   for a signature is the boring failure. When a move is genuinely required, you
   DO use it.
-The rule above both is cohesion: never use an element that does not complement
-the others. Every choice must belong to one system. A technique that fights the
-rest of the page is worse than not using it at all. Fit and restraint first,
-then the right move exactly where it is needed.
+  The rule above both is cohesion: never use an element that does not complement
+  the others. Every choice must belong to one system. A technique that fights the
+  rest of the page is worse than not using it at all. Fit and restraint first,
+  then the right move exactly where it is needed.
 
 ## The signature serif headline
 
@@ -1532,6 +1536,7 @@ individually-fine parts (a font here, a colour there, a nice image) that did not
 belong to each other. "Every small good part from a hundred feet away, made into
 the ugliest thing." The fix that landed every time: pick ONE world and make every
 element serve it.
+
 - One palette, held with discipline. A monochrome or tightly-related set beats a
   mix. "Blue AND green AND a warm accent" read as ugly even though each was fine.
 - One type voice. Never field two display faces that argue. Use a single family
@@ -1589,8 +1594,6 @@ nothing is slop. Put authored, purposeful motion on the page: a nav that enters
 and responds, a signature that drifts/floats, scroll-linked parallax, crafted
 hovers. Calm is allowed; dead is not. (Still: never gate content on a reveal —
 animate y, not opacity-to-0.)
-
-
 
 ---
 

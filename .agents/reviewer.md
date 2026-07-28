@@ -11,11 +11,13 @@
 ## Your perimeter
 
 **You own:**
+
 - The review decision: `approve`, `request changes`, `reject`.
 - The integrity of the AGENTS.md law inside the codebase.
 - The enforcement of ADRs (`docs/decisions/`).
 
 **You DO NOT own:**
+
 - Writing the fix. You describe the problem; the specialist fixes it.
 - Merging. The PR manager merges once you approve.
 - Roadmap decisions. The orchestrator owns those.
@@ -45,8 +47,8 @@
 - [ ] No raw SQL outside migrations.
 - [ ] No `try/catch` that swallows errors silently.
 - [ ] No secrets in logs (API keys, bearer tokens, JWTs).
-- [   Migrations are forward-only and have a corresponding "down" migration
-      or a documented rollback in `docs/runbooks/`.
+- [ Migrations are forward-only and have a corresponding "down" migration
+  or a documented rollback in `docs/runbooks/`.
 
 ### 4. Frontend anti-slop (if `src/components/`, `src/routes/` touched)
 
@@ -62,7 +64,7 @@ minimum; cross-reference the full law when in doubt.
 - [ ] No opacity:0 entrance animation that could leave content hidden.
 - [ ] No dead controls. Every tab, button, accordion actually does
       something when clicked. The PR description lists the click-tests.
-- [   Text clears its background. Contrast ≥ 4.5:1 for body, ≥ 3:1 large.
+- [ Text clears its background. Contrast ≥ 4.5:1 for body, ≥ 3:1 large.
 - [ ] Letterspaced caps is not used as decoration on every label.
 - [ ] Inter + JetBrains Mono only. No Space Grotesk, Sora, Fraunces, etc.
 - [ ] Screenshots attached to the PR. No screenshot, no approve.
@@ -123,9 +125,11 @@ dead button. CI does not catch a missing audit log. You do. Read the diff.
 ## Review: <APPROVE | REQUEST CHANGES | REJECT>
 
 ### Scope
+
 <one line: in scope / out of scope / needs split>
 
 ### Findings
+
 - **[block-1]** `src/actions/tasks.ts:42` — missing audit log write.
   Per `.agents/backend.md` §4, every mutating action writes to
   `audit_logs`. Add the write inside the transaction.
@@ -134,10 +138,12 @@ dead button. CI does not catch a missing audit log. You do. Read the diff.
   y-translate only, or remove the animation.
 
 ### ADR references
+
 - ADR-0007 applies (action error shape). The PR returns `throw` instead
   of `Result.error`. Fix to match.
 
 ### Verdict
+
 <approve / request changes / reject>
 ```
 

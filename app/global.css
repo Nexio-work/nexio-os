@@ -1,0 +1,246 @@
+/*
+ * Nexio OS — global stylesheet
+ *
+ * Design system: data.nexio.work (per ADR-0004).
+ * Tokens are the single source of truth. Do NOT introduce new colors,
+ * fonts, or border-radius values without an ADR.
+ *
+ * Tokens are in HSL (component-friendly for Tailwind 4 + shadcn-style
+ * utilities). The original hex values from ADR-0004 are documented inline.
+ */
+
+/* Self-hosted fonts (no render-blocking Google Fonts request) */
+@import "@fontsource-variable/inter";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+@import "tailwindcss";
+@import "@agent-native/core/styles/agent-native.css";
+@import "@agent-native/toolkit/styles.css";
+
+@source "./**/*.{ts,tsx}";
+
+/* ════════════════════════════════════════════════════════════════
+   NEXIO OS DESIGN TOKENS — data.nexio.work (ADR-0004)
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Substrate & surfaces */
+  --background: 36 38% 94%; /* #f5f1ea cream substrate */
+  --foreground: 30 6% 9%; /* #1a1816 warm charcoal ink */
+  --card: 0 0% 100%; /* #ffffff cards on cream */
+  --card-foreground: 30 6% 9%; /* ink */
+  --popover: 0 0% 100%; /* #ffffff popovers */
+  --popover-foreground: 30 6% 9%;
+
+  /* Primary = terracotta — the Nexio OS accent */
+  --primary: 14 73% 42%; /* #b8451e terracotta */
+  --primary-foreground: 36 38% 94%; /* cream on terracotta */
+
+  /* Secondary = forest green — link to FATAPLUS, used for agent signature */
+  --secondary: 145 39% 28%; /* #2d5f3f forest */
+  --secondary-foreground: 0 0% 100%; /* white on forest */
+
+  /* Muted = warm beige (NOT slop gray) */
+  --muted: 36 25% 89%; /* #ebe6dc lighter beige */
+  --muted-foreground: 30 8% 36%; /* #5c574f ink-2 */
+
+  /* Accent slot = terracotta tint background for hover/selected */
+  --accent: 16 65% 92%; /* #f4e3dc terracotta-soft */
+  --accent-foreground: 14 73% 42%; /* terracotta on its tint */
+
+  /* Warn = amber for signals */
+  --warn: 43 67% 33%; /* #8a6d1b amber */
+  --warn-soft: 45 50% 88%; /* #f0e8d0 amber-soft */
+
+  /* Destructive (kept consistent with terracotta family) */
+  --destructive: 14 73% 42%; /* same as primary terracotta */
+  --destructive-foreground: 36 38% 94%;
+
+  /* Borders = warm beige lines (NEVER slop gray) */
+  --border: 36 30% 82%; /* #d9d3c7 line */
+  --input: 36 30% 82%; /* same warm beige for inputs */
+  --ring: 14 73% 42%; /* terracotta focus ring */
+
+  /* CRITICAL: square corners everywhere (ADR-0004 §Shape system)
+     The only exception is the live status dot, which uses 50%. */
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+
+  /* Sidebar (NavigationDrawer at expanded breakpoint) */
+  --sidebar-background: 0 0% 100%; /* surface */
+  --sidebar-foreground: 30 8% 36%; /* ink-2 */
+  --sidebar-primary: 14 73% 42%; /* terracotta */
+  --sidebar-primary-foreground: 36 38% 94%;
+  --sidebar-accent: 16 65% 92%; /* terracotta-soft */
+  --sidebar-accent-foreground: 14 73% 42%;
+  --sidebar-border: 36 30% 82%; /* warm beige */
+  --sidebar-ring: 14 73% 42%;
+
+  /* Nexio OS custom tokens (not in shadcn convention) */
+  --ink-3: 30 7% 51%; /* #8a847a tertiary text */
+  --line-2: 36 25% 89%; /* #ebe6dc lighter divider */
+  --accent-2: 145 39% 28%; /* #2d5f3f forest (alias secondary) */
+  --accent-2-soft: 110 25% 89%; /* #dce8df forest-soft */
+
+  /* Type roles */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Dark mode — not the priority for Phase 1, but kept consistent
+   with the data.nexio.work language: same warm charcoal logic,
+   not blue-charcoal slop. */
+.dark {
+  --background: 30 6% 9%; /* warm charcoal */
+  --foreground: 36 25% 89%; /* lighter beige text */
+  --card: 30 6% 12%; /* slightly raised warm charcoal */
+  --card-foreground: 36 25% 89%;
+  --popover: 30 6% 12%;
+  --popover-foreground: 36 25% 89%;
+
+  --primary: 16 65% 60%; /* lighter terracotta on dark */
+  --primary-foreground: 30 6% 9%;
+
+  --secondary: 145 30% 50%; /* lighter forest on dark */
+  --secondary-foreground: 30 6% 9%;
+
+  --muted: 30 6% 16%;
+  --muted-foreground: 30 7% 65%;
+
+  --accent: 30 6% 18%;
+  --accent-foreground: 16 65% 60%;
+
+  --destructive: 16 65% 60%;
+  --destructive-foreground: 30 6% 9%;
+
+  --border: 30 6% 22%;
+  --input: 30 6% 22%;
+  --ring: 16 65% 60%;
+
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+
+  --sidebar-background: 30 6% 6%;
+  --sidebar-foreground: 30 7% 65%;
+  --sidebar-primary: 16 65% 60%;
+  --sidebar-primary-foreground: 30 6% 9%;
+  --sidebar-accent: 30 6% 16%;
+  --sidebar-accent-foreground: 16 65% 60%;
+  --sidebar-border: 30 6% 18%;
+  --sidebar-ring: 16 65% 60%;
+
+  --ink-3: 30 7% 51%;
+  --line-2: 30 6% 18%;
+  --accent-2: 145 30% 50%;
+  --accent-2-soft: 30 6% 16%;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   BASE LAYER
+   ════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    /* Body voice = system-ui neutral (per AGENTS.md "Inter is slop when
+       it carries the brand; system-ui is genuinely neutral"). */
+    font-family: var(--font-body);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    /* Square corners everywhere by default (ADR-0004). */
+    border-radius: 0;
+  }
+
+  /* Display role = Instrument Serif (per ADR-0004 type roles) */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400; /* Instrument Serif only has 400 */
+    letter-spacing: -0.005em;
+  }
+
+  /* Data role = JetBrains Mono — applied via utility class .font-mono
+     or directly on labels, codes, timestamps. NOT on every label. */
+
+  /* Focus ring = terracotta, never blue */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SCROLLBAR — minimal, warm beige
+   ════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  /* Square ends — consistent with shape system */
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--ink-3));
+}
+
+/* ════════════════════════════════════════════════════════════════
+   NEXIO OS UTILITIES — brand-specific, used by signature components
+   ════════════════════════════════════════════════════════════════ */
+
+/* Display utility — Instrument Serif italic for signature accents
+   (the agent card title, the detail pane headline). */
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* Live status dot — the ONLY element allowed to be round. */
+@utility live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--secondary));
+  animation: nexio-pulse 2s infinite;
+}
+
+@keyframes nexio-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Mono uppercase label — for genuine labels only (file paths, codes,
+   timestamps, statuses). NOT decoration on every eyebrow. */
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(var(--ink-3));
+}

@@ -19,14 +19,14 @@ on:
   workflow_dispatch:
     inputs:
       bump:
-        description: 'Version bump (patch / minor / major)'
+        description: "Version bump (patch / minor / major)"
         required: true
         default: patch
         type: choice
         options: [patch, minor, major]
 
 permissions:
-  contents: write  # required to push tags and create releases
+  contents: write # required to push tags and create releases
   deployments: write
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # full history for changelog generation
+          fetch-depth: 0 # full history for changelog generation
 
       - uses: pnpm/action-setup@v4
         with:

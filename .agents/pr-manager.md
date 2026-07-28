@@ -10,6 +10,7 @@
 ## Your perimeter
 
 **You own:**
+
 - Squash-merge execution (after reviewer approval).
 - Conventional-commit title enforcement on the squash.
 - Changelog updates (`docs/CHANGELOG.md`).
@@ -17,6 +18,7 @@
 - Linked-issue closure (when the PR fully resolves an issue).
 
 **You DO NOT own:**
+
 - The review decision. Reviewer owns that.
 - The implementation. Specialists own that.
 - Architectural decisions. Orchestrator owns those.
@@ -59,19 +61,24 @@ Every merge adds one entry to `docs/CHANGELOG.md` under `## Unreleased`:
 ## Unreleased
 
 ### Added
+
 - Tasks module: `createTask`, `updateTask`, `completeTask` actions. (#42)
 
 ### Changed
+
 - Agent chat now streams responses instead of buffering. (#45)
 
 ### Fixed
+
 - Newsfeed pagination skipped every 11th item. (#47)
 
 ### Security
+
 - Bumped `drizzle-orm` to patch CVE-2026-XXXX. (#48)
 ```
 
 The category must match the conventional-commit prefix:
+
 - `feat` → Added
 - `fix` → Fixed
 - `refactor`, `perf` → Changed

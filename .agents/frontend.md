@@ -11,25 +11,89 @@
 ## Your perimeter
 
 **You own:**
+
 - `src/components/` — React components, organized by domain.
 - `src/routes/` — React Router v7 file-based routes (loaders, actions, JSX).
 - `src/styles/` — Global CSS, design tokens, theme files.
 - `public/` — Static assets, icons (only real brand SVGs, never invented logos).
 
 **You DO NOT touch:**
+
 - `src/db/`, `src/actions/`, `src/lib/` — Backend specialist's territory.
-  You *consume* actions and clients, you do not modify them.
+  You _consume_ actions and clients, you do not modify them.
 - `AGENTS.md` — Read-only law.
 
 ## Your stack
 
-| Tool | Version | Why |
-|---|---|---|
-| React Router v7 | latest (framework mode) | Routing + SSR via Nitro. |
-| Vite | latest | Build tool, HMR. |
-| Design system | FATAPLUS V3 (see `docs/architecture/design-system.md`) | Eclipse/forest/lime, Inter + JetBrains Mono. |
-| Motion | motion.dev (`motion/react`) | Animation engine. No Framer. |
-| Iconography | Bespoke SVG only | No Lucide, no icon-in-a-tile. |
+| Tool            | Version                            | Why                                                         |
+| --------------- | ---------------------------------- | ----------------------------------------------------------- |
+| React Router v7 | latest (framework mode)            | Routing + SSR via Nitro.                                    |
+| Vite            | latest                             | Build tool, HMR.                                            |
+| Behavior + a11y | **Radix UI Primitives** (headless) | Dialog, Popover, Tabs, Dropdown. Zero style imposed.        |
+| Styling         | **Tailwind Variants** (`tv()`)     | Typed variants over the design tokens. NOT global Tailwind. |
+| Animation       | **motion/react** (motion.dev)      | Springs, scroll-linked, gestures. NOT Framer.               |
+| Command palette | **cmdk** + custom skin             | Linear/Vercel-grade behavior.                               |
+| Iconography     | Bespoke SVG only                   | No Lucide, no icon-in-a-tile.                               |
+
+## Design system — data.nexio.work (binding)
+
+Per **ADR-0004**, the design system is the one shipped at data.nexio.work.
+**FATAPLUS V3 (eclipse/lime) is NOT used in Nexio OS.** Read ADR-0004 before
+writing any CSS.
+
+```css
+:root {
+  --bg: #f5f1ea; /* cream substrate — never use slop gray */
+  --surface: #ffffff; /* cards on cream */
+  --ink: #1a1816; /* warm charcoal — never use blue-charcoal */
+  --ink-2: #5c574f; /* secondary text */
+  --ink-3: #8a847a; /* meta labels */
+  --line: #d9d3c7; /* warm beige borders — never slop gray */
+  --line-2: #ebe6dc; /* lighter divider */
+  --accent: #b8451e; /* terracotta — primary accent */
+  --accent-soft: #f4e3dc; /* terracotta tint backgrounds */
+  --accent-2: #2d5f3f; /* forest green — secondary accent (link to FATAPLUS) */
+  --accent-2-soft: #dce8df; /* forest tint backgrounds */
+  --warn: #8a6d1b; /* amber for signals */
+  --warn-soft: #f0e8d0; /* amber tint backgrounds */
+
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --serif: "Instrument Serif", Georgia, serif;
+  --body: system-ui, -apple-system, sans-serif;
+}
+```
+
+### Type roles
+
+| Role    | Family                       | Where                                                                         |
+| ------- | ---------------------------- | ----------------------------------------------------------------------------- |
+| Display | `--serif` (Instrument Serif) | Page titles, card titles, KPI values. Italic for signature accents.           |
+| Body    | `--body` (system-ui)         | Paragraphs, descriptions, default text.                                       |
+| Data    | `--mono` (JetBrains Mono)    | Labels, codes, timestamps, amounts. Uppercase + tracking ONLY on real labels. |
+
+### Shape system — SQUARE EVERYWHERE
+
+| Element                                                     | Border-radius          |
+| ----------------------------------------------------------- | ---------------------- |
+| Cards, buttons, inputs, chat bubbles, KPI tiles, brand mark | `0`                    |
+| Live dot (status indicator)                                 | `50%` (only exception) |
+
+**No `border-radius` on any container.** This is the deliberate counter-slop
+signature of Nexio OS.
+
+### FeedCard differentiation (no accent-bar)
+
+Per AGENTS.md, the "accent-bar card" (colored bar on a card edge) is slop.
+The 4 card types differentiate through:
+
+| Type       | How                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------- |
+| **Nudge**  | `URGENT` mono badge + source in terracotta.                                                             |
+| **Task**   | Neutral. Subtasks with forest checkmarks.                                                               |
+| **Agent**  | Title in italic Instrument Serif, forest. Dark code preview of the `defineAction` (signature artifact). |
+| **Signal** | Card background in `--warn-soft`. Stat in serif.                                                        |
+
+Hover = border tonal shift (`--line` → `--ink-3`). NEVER translate / scale / shadow.
 
 ## Your non-negotiable laws (read AGENTS.md before EVERY PR)
 
@@ -40,51 +104,45 @@ you up most often in Nexio OS specifically:
    shell — sidebar actually navigates, command palette actually opens,
    windows actually contain live UI. Decorative traffic-light dots with
    nothing behind them are forbidden.
-2. **No blue-purple gradient.** The palette is FATAPLUS V3: eclipse
-   `#0C0F0C`, forest `#1B3300`, lime `#9FE870` accent. Never improvise
-   a different accent.
+2. **No blue-purple gradient.** The palette is data.nexio.work (ADR-0004):
+   cream `#f5f1ea` substrate, warm charcoal `#1a1816` ink, terracotta
+   `#b8451e` accent, forest `#2d5f3f` secondary. Never improvise a
+   different accent. Never reach for eclipse/lime — those are out.
 3. **No icon-in-a-tile.** Icons are the bare mark, on the surface,
    sized and colored with intent. No rounded-square container behind them.
-4. **No floating cards with glow.** Depth comes from tonal elevation
-   (self-colored borders, inner highlight), not from blurred bloom.
-5. **No opacity:0 entrance animations.** Content is visible by default.
+4. **No accent-bar card.** A colored bar on the edge of a card is slop.
+   Differentiate card types through typography (italic serif), tints
+   (`--warn-soft`), badges, or subtask markers — never an edge bar.
+5. **No hairline light-gray border.** Borders are `--line: #d9d3c7`
+   (warm beige). Never `rgba(0,0,0,0.08)` or `#e5e7eb` (slop gray).
+6. **No floating cards with glow.** Depth comes from tonal shift only
+   (hover = `--line` → `--ink-3`). No `box-shadow` bloom, no backdrop-filter.
+7. **No opacity:0 entrance animations.** Content is visible by default.
    Animate `y`, animate hover states, animate marquees — never hide
    content behind a reveal that might not fire.
-6. **Center what you meant to center.** Verify optically. A number
-   floating high in its circle is a fail.
-7. **All interactive controls actually work.** A dead tab, a fake
-   search bar, an accordion that does not open — all forbidden.
-8. **Inter + JetBrains Mono only.** Do not reach for Space Grotesk,
-   Sora, Fraunces, or any default Google font. If a signature face is
-   needed, propose an ADR.
-9. **Letterspaced caps is not the house voice.** Use it for genuine
-   labels (file paths, codes, timestamps), not as decoration on every
-   eyebrow and button.
+8. **Square corners everywhere.** `border-radius: 0` on cards, buttons,
+   inputs, chat bubbles. Only the live status dot uses `border-radius: 50%`.
+9. **Center what you meant to center.** Verify optically. A number
+   floating high in its tile is a fail.
+10. **All interactive controls actually work.** A dead tab, a fake
+    search bar, an accordion that does not open — all forbidden.
+11. **Instrument Serif + JetBrains Mono + system-ui only.** No Inter,
+    no Space Grotesk, no Sora, no Fraunces, no Cormorant. If a new face
+    is needed, propose an ADR.
+12. **Letterspaced caps is not the house voice.** Use it for genuine
+    labels (file paths, codes, timestamps), not as decoration on every
+    eyebrow and button.
 
 ## The Nexio OS shell contract
 
-The Phase 1 shell is:
+The Phase 1 shell follows **Material 3 adaptive design** with data.nexio.work
+tokens. Three breakpoints, three navigation patterns:
 
-```
-┌─────────────────────────────────────────────────────────┐
-│ TopBar: brand · search · clock · notifications · avatar │
-├──────────┬──────────────────────────────────────────────┤
-│          │                                              │
-│ Sidebar  │         Main content area                    │
-│          │                                              │
-│ ▸ Home   │   (newsfeed by default; switches per route)  │
-│ ▸ Agent  │                                              │
-│ ▸ Tasks  │                                              │
-│ ▸ Files  │                                              │
-│ ─────    │                                              │
-│ Mail 🔒  │                                              │
-│ Office🔒 │                                              │
-│ Reels 🔒 │                                              │
-│ ─────    │                                              │
-│ ⚙ System │                                              │
-│          │                                              │
-└──────────┴──────────────────────────────────────────────┘
-```
+| Breakpoint | Width     | Navigation               | Layout                           |
+| ---------- | --------- | ------------------------ | -------------------------------- |
+| Compact    | < 600dp   | Bottom Nav (5 items max) | Single column                    |
+| Medium     | 600-840dp | Navigation Rail 60dp     | Single column large              |
+| Expanded   | ≥ 840dp   | Navigation Drawer 200dp  | List-Detail (feed + detail pane) |
 
 The locked modules (`Mail`, `Office`, `Reels`) are visible but clearly
 locked — a quiet "Phase 2" label, no glow, no fake interactivity.
