@@ -11,7 +11,7 @@ That is the only success metric that matters for Phase 1.
 
 ---
 
-## Phase 0 — Setup (1 week, in progress)
+## Phase 0 — Setup (1 week, complete)
 
 **Goal:** Repo, agents, CI, docs. Ready to onboard any AI agent to code.
 
@@ -23,10 +23,10 @@ That is the only success metric that matters for Phase 1.
 - [x] Add CI/CD: 5 gates + preview deploy + release.
 - [x] Add ADR-0001 (stack), ADR-0002 (license), ADR-0003 (mock Hermes).
 - [x] Add changelog, roadmap, README, LICENSE (AGPL-3.0).
-- [ ] Scaffold app via `npx @agent-native/core create` (after this PR merges).
-- [ ] First green CI on `main`.
+- [x] Scaffold app via `agent-native create` (`chat` template standalone).
+- [x] First green CI on `main` (all 5 gates pass).
 
-## Phase 1 — MVP (6–8 weeks)
+## Phase 1 — MVP (6–8 weeks, in progress)
 
 **Goal:** Fefe can run his day from Nexio OS.
 
