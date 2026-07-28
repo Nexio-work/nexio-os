@@ -44,6 +44,11 @@ Thumbs.db
 # Cloudflare
 .wrangler/cache/
 
+# Local SQLite dev DB (agent-native uses libsql locally)
+data/app.db
+data/app.db-shm
+data/app.db-wal
+
 # Logs
 *.log
 npm-debug.log*

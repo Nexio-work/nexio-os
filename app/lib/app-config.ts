@@ -1,5 +1,5 @@
-const rawAppName = "nexio-os-scaffold";
-const rawAppTitle = "Nexio Os Scaffold";
+const rawAppName = "nexio-os";
+const rawAppTitle = "Nexio OS";
 
 const APP_NAME_PLACEHOLDER = "{" + "{APP_NAME}}";
 const APP_TITLE_PLACEHOLDER = "{" + "{APP_TITLE}}";
