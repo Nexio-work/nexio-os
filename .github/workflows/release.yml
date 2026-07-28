@@ -1,0 +1,116 @@
+# Nexio OS — Release
+#
+# Triggered manually (workflow_dispatch) when the orchestrator and Fefe
+# agree that a slice of work is ready to ship. This workflow:
+#   1. Validates that main is green.
+#   2. Cuts a tag v0.X.Y based on the changelog.
+#   3. Deploys to Cloudflare Pages (production branch).
+#   4. Publishes a GitHub Release with the changelog excerpt.
+#
+# Tags follow semantic versioning:
+#   v0.X.Y — pre-1.0, breaking allowed between minor versions
+#   v1.0.0 — first "stable" release, after Phase 1 ships
+#
+# Agents: do NOT trigger this on your own. Fefe must approve every release.
+
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump (patch / minor / major)'
+        required: true
+        default: patch
+        type: choice
+        options: [patch, minor, major]
+
+permissions:
+  contents: write  # required to push tags and create releases
+  deployments: write
+
+jobs:
+  release:
+    name: Cut release and deploy to production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history for changelog generation
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify main CI is green
+        run: |
+          echo "Checking latest CI run on main..."
+          gh run list --branch main --workflow ci.yml --limit 1 --json conclusion --jq '.[0].conclusion' \
+            | grep -q success || { echo "Last CI run on main is not green. Aborting."; exit 1; }
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute next version
+        id: version
+        run: |
+          CURRENT=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Current version: $CURRENT"
+          BUMP="${{ github.event.inputs.bump }}"
+          case "$BUMP" in
+            patch) NEXT=$(semver-bump-patch "$CURRENT") ;;
+            minor) NEXT=$(semver-bump-minor "$CURRENT") ;;
+            major) NEXT=$(semver-bump-major "$CURRENT") ;;
+          esac
+          echo "Next version: $NEXT"
+          echo "version=$NEXT" >> $GITHUB_OUTPUT
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy to Cloudflare Pages (production)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=nexio-os --branch=main
+
+      - name: Extract changelog for this version
+        id: changelog
+        run: |
+          # Extract the Unreleased section from CHANGELOG.md
+          awk '/^## Unreleased/{flag=1; next} /^## v[0-9]/{flag=0} flag' docs/CHANGELOG.md > /tmp/release-notes.md
+          echo "Release notes extracted:"
+          cat /tmp/release-notes.md
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.version.outputs.version }} -m "Release ${{ steps.version.outputs.version }}"
+          git push origin ${{ steps.version.outputs.version }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          body_path: /tmp/release-notes.md
+          draft: false
+          prerelease: ${{ startsWith(steps.version.outputs.version, 'v0.') }}
+
+      - name: Rename changelog section
+        run: |
+          # Move "## Unreleased" content under "## <version> — <date>"
+          TODAY=$(date +%Y-%m-%d)
+          sed -i.bak "s/^## Unreleased/## Unreleased\n\n## ${{ steps.version.outputs.version }} — $TODAY/" docs/CHANGELOG.md
+          rm docs/CHANGELOG.md.bak
+          git config user.name "nexio-os-bot"
+          git config user.email "bot@nexio.work"
+          git add docs/CHANGELOG.md
+          git commit -m "docs(changelog): record ${{ steps.version.outputs.version }}"
+          git push origin main
